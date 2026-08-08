@@ -43,21 +43,21 @@ export default function HomeContent() {
   });
 
   return (
-    <main className="max-w-6xl mx-auto p-6 flex flex-col md:flex-row gap-6">
+    <main className="w-full mx-auto p-6 flex flex-col md:flex-row gap-6 bg-blue-50">
       <Sidebar
         category={category}
         setCategory={setCategory}
         maxPrice={maxPrice}
         setMaxPrice={setMaxPrice}
       />
-      <div className="flex-1">
-        <h1 className="text-2xl font-bold mb-4">Product Listing</h1>
+      <div className="flex-1 mr-2">
+        <h1 className="text-3xl font-bold mb-4 mt-1">Product Listing</h1>
         {filtered.length === 0 ? (
           <p className="text-gray-500">No products found.</p>
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filtered.map((product) => (
-              <ProductCard key={product.id} product={product} />
+            {filtered.map((product, index) => (
+              <ProductCard key={product.id} product={product} index={index} />
             ))}
           </div>
         )}

@@ -20,7 +20,7 @@ export default function ProductDetailClient({ product }: { product: Product }) {
             size={18}
             className={
               i < product.rating
-                ? "fill-yellow-400 text-yellow-400"
+                ? "fill-blue-700 text-blue-700"
                 : "text-gray-300"
             }
           />

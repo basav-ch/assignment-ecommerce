@@ -16,13 +16,13 @@ export default function Sidebar({
   const categories = ["All", "Electronics", "Clothing", "Home"];
 
   return (
-    <aside className="w-full md:w-64 flex flex-col gap-4 h-fit">
+    <aside className="w-full md:w-75 flex flex-col gap-4 min-h-150 ml-2 mt-2">
       {/* Box 1 */}
-      <div className="bg-blue-700 text-white p-5 rounded-lg">
-        <h2 className="text-lg font-bold mb-4">Filters</h2>
+      <div className="bg-blue-700 text-white p-8 rounded-lg">
+        <h2 className="text-2xl font-semibold mb-4">Filters</h2>
 
         <h3 className="font-semibold mb-2">Category</h3>
-        <div className="space-y-2 mb-6">
+        <div className="space-y-4 mb-6">
           {categories.map((cat) => (
             <label key={cat} className="flex items-center gap-2 cursor-pointer">
               <input
@@ -30,14 +30,14 @@ export default function Sidebar({
                 name="category"
                 checked={category === cat}
                 onChange={() => setCategory(cat)}
-                className="accent-white"
+                className="blue"
               />
               {cat}
             </label>
           ))}
         </div>
 
-        <h3 className="font-semibold mb-2">Price</h3>
+        <h3 className="font-semibold mb-2 mt-8">Price</h3>
         <input
           type="range"
           min={0}
@@ -53,9 +53,9 @@ export default function Sidebar({
       </div>
 
       {/* Box 2 */}
-      <div className="bg-white p-5 rounded-lg shadow">
+      <div className="bg-white p-8 rounded-lg shadow">
         <h2 className="text-lg font-bold mb-4">Category</h2>
-        <div className="space-y-2 mb-6">
+        <div className="space-y-4 mb-6">
           {categories.map((cat) => (
             <label
               key={`b2-${cat}`}
@@ -73,7 +73,7 @@ export default function Sidebar({
           ))}
         </div>
 
-        <h3 className="font-semibold mb-2">Price</h3>
+        <h3 className="font-semibold mb-2 mt-8">Price</h3>
         <input
           type="number"
           value={maxPrice}
