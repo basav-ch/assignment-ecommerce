@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { Star } from "lucide-react";
+// import { Star } from "lucide-react";
 import { Product } from "@/data/products";
 import { useCartStore } from "@/store/cartStore";
 
@@ -23,7 +23,7 @@ export default function ProductCard({ product }: { product: Product }) {
         <h3 className="font-semibold">{product.title}</h3>
       </Link>
       <p className="text-gray-700 mb-2">${product.price}</p>
-      <div className="flex mb-2">
+      {/* <div className="flex mb-2">
         {Array.from({ length: 5 }).map((_, i) => (
           <Star
             key={i}
@@ -35,7 +35,7 @@ export default function ProductCard({ product }: { product: Product }) {
             }
           />
         ))}
-      </div>
+      </div> */}
       <button
         onClick={() => addToCart(product)}
         className="mt-auto bg-blue-700 text-white py-2 rounded-md hover:bg-blue-800"
