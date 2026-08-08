@@ -56,8 +56,8 @@ export default function HomeContent() {
           <p className="text-gray-500">No products found.</p>
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filtered.map((product, index) => (
-              <ProductCard key={product.id} product={product} index={index} />
+            {filtered.map((product,index) => (
+              <ProductCard key={product.id} product={product} />
             ))}
           </div>
         )}

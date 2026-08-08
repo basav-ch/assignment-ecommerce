@@ -6,7 +6,7 @@ import { Product } from "@/data/products";
 import { useCartStore } from "@/store/cartStore";
 
 export default function ProductDetailClient({ product }: { product: Product }) {
-  const [quantity, setQuantity] = useState(1);
+  const [quantity, setQuantity] = useState(0);
   const addToCart = useCartStore((state) => state.addToCart);
 
   return (
@@ -33,7 +33,7 @@ export default function ProductDetailClient({ product }: { product: Product }) {
 
       <div className="flex items-center gap-3 mb-6">
         <button
-          onClick={() => setQuantity((q) => Math.max(1, q - 1))}
+          onClick={() => setQuantity((q) => Math.max(0, q - 1))}
           className="border px-3 py-1 rounded-md"
         >
           -

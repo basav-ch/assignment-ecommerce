@@ -7,6 +7,8 @@ const nextConfig: NextConfig = {
     { protocol: "https", hostname: "file.aiquickdraw.com" },
     { protocol: "https", hostname: "assets-jiocdn.ajio.com" },
     { protocol: "https", hostname: "image01-in.oneplus.net" },
+    { protocol: "https", hostname: "placehold.co" },
+
   ],
   },
 };
