@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useRouter, useSearchParams, usePathname } from "next/navigation";
 import Sidebar from "@/components/Sidebar";
 import ProductCard from "@/components/ProductCard";
@@ -19,6 +19,19 @@ export default function HomeContent() {
   );
   const search = searchParams.get("search") || "";
 
+  const isFirstRender = useRef(true);
+
+  useEffect(() => {
+    if (isFirstRender.current) {
+      isFirstRender.current = false;
+      return;
+    }
+    const timer = setTimeout(() => {
+      updateParams({ price: `0-${maxPrice}` });
+    }, 1000);
+    return () => clearTimeout(timer);
+  }, [maxPrice]);
+
   const updateParams = (updates: Record<string, string>) => {
     const params = new URLSearchParams(searchParams.toString());
     Object.entries(updates).forEach(([key, value]) => params.set(key, value));
@@ -32,7 +45,6 @@ export default function HomeContent() {
 
   const setMaxPrice = (price: number) => {
     setMaxPriceState(price);
-    updateParams({ price: `0-${price}` });
   };
 
   const filtered = products.filter((p) => {
@@ -56,7 +68,7 @@ export default function HomeContent() {
           <p className="text-gray-500">No products found.</p>
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filtered.map((product,index) => (
+            {filtered.map((product) => (
               <ProductCard key={product.id} product={product} />
             ))}
           </div>

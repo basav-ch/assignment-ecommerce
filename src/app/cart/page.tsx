@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Trash2 } from "lucide-react";
 import { useCartStore } from "@/store/cartStore";
+import { ArrowLeft } from "lucide-react";
 
 export default function CartPage() {
   const items = useCartStore((state) => state.items);
@@ -14,18 +15,34 @@ export default function CartPage() {
 
   if (items.length === 0) {
     return (
-      <main className="max-w-4xl mx-auto p-6 text-center">
-        <h1 className="text-2xl font-bold mb-4">Your Cart</h1>
-        <p className="text-gray-500 mb-4">Your cart is empty.</p>
-        <Link href="/" className="text-blue-700 underline">
-          Continue shopping
+      <main className="max-w-4xl mx-auto p-6">
+        <Link
+          href="/"
+          className="inline-flex items-center font-semibold gap-2 hover:underline mb-4"
+        >
+          <ArrowLeft size={28} />
+          Back
         </Link>
+        <div className="text-center">
+          <h1 className="text-2xl font-bold mb-4">Your Cart</h1>
+          <p className="text-gray-500 mb-4">Your cart is empty.</p>
+          <Link href="/" className="text-blue-700 underline">
+            Continue shopping
+          </Link>
+        </div>
       </main>
     );
   }
 
   return (
     <main className="max-w-4xl mx-auto p-6">
+      <Link
+        href="/"
+        className="inline-flex items-center gap-2 hover:underline mb-4 font-semibold"
+      >
+        <ArrowLeft size={28} />
+        Back
+      </Link>
       <h1 className="text-2xl font-bold mb-6">Your Cart</h1>
 
       <div className="flex flex-col gap-4 mb-8">
@@ -38,7 +55,7 @@ export default function CartPage() {
               <Image
                 src={item.image}
                 alt={item.title}
-                fill
+                fill sizes="80px"
                 className="object-contain"
               />
             </div>

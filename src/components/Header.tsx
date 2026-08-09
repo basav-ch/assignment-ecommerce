@@ -50,7 +50,7 @@ export default function Header() {
           value={query}
           onChange={handleChange}
           placeholder="Search for products..."
-          className="w-full pl-10 pr-4 py-2 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-100 placeholder-white border border-white text-white"
+          className="w-full pl-10 pr-4 py-2 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-100 placeholder-white border border-white text-white bg-transparent"
         />
       </form>
 
