@@ -32,14 +32,14 @@ export default function Header() {
   };
 
   return (
-    <header className="bg-blue-700 px-6 py-6 grid grid-cols-9 items-center gap-4">
-      <Link href="/" className="text-white text-4xl font-bold col-span-3 ml-8">
+    <header className="bg-blue-700 px-6 py-6 grid grid-cols-7 md:grid-cols-9 items-center gap-4">
+      <Link href="/" className="text-white text-4xl font-bold col-span-2 md:col-span-3 md:ml-8">
         Logo
       </Link>
 
       <form
         onSubmit={handleSearch}
-        className="relative border-white col-span-5 mr-20"
+        className="relative border-white col-span-3 md:col-span-5 mr-10 md:mr-20"
       >
         <Search
           className="absolute left-3 top-1/2 -translate-y-1/2 text-white"
@@ -56,7 +56,7 @@ export default function Header() {
 
       <Link
         href="/cart"
-        className="relative flex items-center justify-center gap-2 bg-blue-950 text-white px-4 py-2 rounded-md hover:bg-blue-900 justify-self-end w-full mr-10 "
+        className="relative flex items-center justify-center gap-2 bg-blue-950 text-white px-4 py-2 rounded-md hover:bg-blue-900 justify-self-end w-full md:mr-10 "
       >
         <ShoppingCart size={18} />
         Cart
